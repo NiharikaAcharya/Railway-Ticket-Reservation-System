@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+	<title>Cancel Ticket</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	 
+	<style>
+
+        html {
+    height: 100%
+}
+		body 		{
+            background-image: url("bg1.jpg");
+            background-repeat: no-repeat;
+    background-size: 100% 100%; }
+.navbar{
+	background-color: black;
+}
+.btn{
+	color: white;
+}
+		
+		.myDiv{
+			    width:100%;
+			    height:90%;
+			    background:#d9ddd4;
+			    border-radius: 25px;
+			}
+		.borderless td, .borderless th {
+    			border: none;
+		}
+	</style>
+</head>
+<body>
+     	
+     	
+   <nav class="navbar navbar-expand-sm  navbar-dark">
+	<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+  		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+	          <li class="nav-item active">
+	  		<button type="submit" class="btn ">Welcome <%= user.username %></button>
+	          </li>
+ 		</ul>
+    
+		<a href="/profile">
+    		    <button type="button" class="btn btn-danger">Home</button>
+		</a>   
+ 	 </div>
+   </nav>            
+ 
+ <br>
+ <br>
+ 
+ <form action="/cancel" method="post" class="form-inline">
+  <div class="form-group mx-sm-3 mb-2">
+    <input type="text" class="form-control" id="inputPassword2" name="pnr" placeholder="PNR">
+  </div>
+  <button type="submit" class="btn btn-dark mb-2">Check Details</button>
+</form>
+   
+   <% if(data.length>0) { %>
+   <script type="text/javascript">
+     document.getElementById('welcomeDiv').style.display = "block";
+</script>
+
+	<div id="welcomeDiv"  class="answer_list">  
+ 	<div class="card shadow p-3 mb-5 bg-white rounded" style="width: 50rem; margin:30px 30px 30px 30px">
+	  <div class="card-header">
+	    PNR : <%= data[0].PNR %>
+	  </div>
+	  
+	  <div class="card-body">
+	    <pre>
+PNR 		 : <%= data[0].PNR %></br>
+Train Number     : <%= data[0].train_number %></br>
+Date of Journey  : <%= data[0].date_journey.toDateString();  %></br>
+Date of Booking  : <%= data[0].date_booking.toDateString();  %></br>
+From  		 : <%= data[0].start %></br>
+End  		 : <%= data[0].end %></br>
+Gender  	 : <%= data[0].gender %></br>
+Status  	 : <%= data[0].status %></br>
+Seats  	 	 : <%= seats %></br>
+	      </pre>
+	  </div>
+	  
+	  <div class="card-footer text-muted">
+	     <form action="/cancel1" method="post">
+		  <div class="form-row">
+		     
+		    <div class="col">
+		    Do you want to cancel the ticket ? 
+		      <input type="hidden" name="pnr" value="<%= data[0].PNR %>" >
+		      <input type="hidden" name="pid" value="<%= data[0].id %>" >
+		       <input type="hidden" name="trainno" value="<%= data[0].train_number %>" >
+		       <input type="hidden" name="date" value="<%= data[0].date_journey %>" >
+		       <% if (data[0].status=="CANCELLED") { %>
+		      <input type="submit" class="btn btn-dark" style="float:right;" value="Cancel Ticket" disabled>
+		      <%} else { %>
+		      	 <input type="submit" class="btn btn-dark" style="float:right;" value="Cancel Ticket">
+		      <% } %>
+		    </div>
+		  </div>
+	    </form>
+	  </div>
+ </div>
+</div>
+
+   <% } %>   
+   
+
+	      
+</body>
+</html>
+
+	      

@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+	<title>Passenger details</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	 
+	<style>
+		/* body 	{  
+			  background-color:#99afcc } */
+			  html {
+    height: 100%
+}
+		body 		{ 
+            background-image: url("bg1.jpg");
+            background-repeat: no-repeat;
+    background-size: 100% 100%; }
+		
+		.myDiv{
+			    width:100%;
+			    height:90%;
+			    background:#d9ddd4;
+			    border-radius: 25px;
+			}
+		.borderless td, .borderless th {
+    			border: none;
+		}
+		.card{
+			opacity: 0.75;
+		}
+		.navbar{
+			background-color: black;
+		}
+		nav.btn{
+			color: blanchedalmond;
+		}
+	</style>
+</head>
+<body>
+     	
+     	
+   <nav class="navbar navbar-expand-sm  navbar-dark">
+	<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+  		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+	          <li class="nav-item active">
+	  		<button type="submit" class="btn ">Welcome <%= user.username %></button>
+	          </li>
+ 		</ul>
+    
+		<a href="/profile">
+    		    <button type="button" class="btn btn-danger">Home</button>
+		</a>   
+ 	 </div>
+   </nav>            
+ 
+ <br>
+ <br>
+ 
+  <div class="card text-center mx-auto" style="width: 50rem;">
+	  <div class="card-header">
+	    Ticket Confirmed
+	  </div>
+	  
+	  <div class="card-body">
+	    
+	    <p class="card-text">Your PNR Number is</p>
+	     <h6 class="card-title"><%= traindata.pnr %></h6>
+	  </div>
+	  <div class="card-footer text-muted">
+	   <a href="/profile">
+	     <button type="submit" class="btn btn-dark" style="float: right;"> Back</button>
+	    </a>
+	  </div>
+</div>
+            
+    
+            
+</body>
+</html>

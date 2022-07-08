@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+	<title>Train list</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	 
+	<style>
+		/* body 	{  
+			  background-color:#99afcc } */
+			  html {
+    height: 100%;
+	/* background-image: url("bg1.jpg");
+            background-repeat: no-repeat;
+    background-size: 100% 100%; */
+}
+		body 		{ 
+			height: 100%;
+            background-image: url("bg1.jpg");
+            background-repeat: no-repeat;
+    background-size: 100% 100%; }
+		
+		.myDiv{
+			    width:100%;
+			    height:90%;
+			    background:#d9ddd4;
+			    border-radius: 25px;
+			}
+		.borderless td, .borderless th {
+    			border: none;
+		}
+		.navbar{
+			background-color: black;
+		}
+		nav.btn{
+			color: white;
+		}
+		.card{
+opacity: 0.85;
+		}
+		p{
+	color: rgb(12, 12, 12);
+	font-weight: bolder;
+}
+	</style>
+</head>
+<body>
+     	
+     	
+   <nav class="navbar navbar-expand-sm  navbar-dark">
+	<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+  		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+	          <li class="nav-item active">
+	  		<button type="submit" class="btn ">Welcome <%= user.username %></button>
+	          </li>
+ 		</ul>
+    
+		<a href="/profile">
+    		    <button type="button" class="btn btn-danger">Back</button>
+		</a>   
+ 	 </div>
+   </nav>            
+
+            
+            <% if (data.length == 0) { %>
+                <div class="alert alert-danger" style="overflow-x: hidden">No trains found</div>
+            <% } %>
+            
+              
+            
+            
+            
+          <div style="margin:30px 30px 30px 30px">
+	
+		
+		 <% for (var i=0; i<data.length; i++){ %>
+		</hr>
+		<p>ALERT : PLEASE BOOK THE TICKET BEFORE HALF AN HOUR OF DEPARTURE</p>
+	</hr>
+		 <div class="card shadow-lg p-3 mb-5 bg-white rounded" >
+			  <h5 class="card-header">Train Number : <%=data[i].train_number%></h5>
+			  <div class="card-body">
+			     <table class="table borderless">
+			     	<tr>
+			     		<td>Train Name</td>
+			     		<td><%= data[i].train_name %></td>
+			     	</tr>
+			     	<tr>
+			     		<td>From</td>
+			     		<td><%= data[i].start %></td>
+			     	</tr>
+			     	<tr>
+			     		<td>To</td>
+			     		<td><%= data[i].end %></td>
+			     	</tr>
+			     	
+			     	<tr>
+			     		<td>Seats Available</td>
+			     		<td><%=data[i].seats %></td>
+			     	</tr>
+		     	 	
+			     </table>
+			     <hr>
+			     <form action="/booktrain" method="post">
+			     	<input type="hidden" name="tno" value="<%=data[i].train_number%>"/>
+			
+			     	<input type="hidden" name="tdate" value="<%=date%>"/>
+			     	<input type="hidden" name="tfrom" value="<%=data[i].start%>"/>
+			     	<input type="hidden" name="tto" value="<%=data[i].end%>"/>
+			     	<input type="hidden" name="tseat" value="<%=data[i].seats%>"/>
+			     	<select class="mdb-select md-form" name="nofseats">
+						  
+				  <option value="" disabled selected>Number of seats</option>
+				  <option value="1">1</option>
+				  <option value="2">2</option>
+				  <option value="3">3</option>
+				  <option value="4">4</option>
+				  <option value="5">5</option>
+				  <option value="6">6</option>
+				  <option value="7">7</option>
+				  <option value="8">8</option>
+				  <option value="9">9</option>
+				  <option value="10">10</option>
+		
+				</select>
+				<select class="mdb-select md-form" name="time">
+					<option value="" disabled selected>Timings</option>
+					<% for(var j=0 ;j<Time.length;j++) {%>
+
+						<option value="<%= Time[j].Timings %>"><%= Time[j].Timings %> </option>
+						
+					<!-- <option value="05:00">05:00</option>
+					<option value="05:30">05:30</option>
+					<option value="06:00">06:00</option>
+					<option value="07:30">07:30</option>
+					<option value="09:00">09:00</option>
+					<option value="10:30">10:30</option>
+					<option value="12:00">12:00</option>
+					<option value="15:00">15:00</option>
+					<option value="19:00">19:00</option>
+					<option value="22:00">22:00</option> -->
+					<% } %> 
+				  </select>
+				<% if (data[i].seats==0) { %>
+			     	<button type="submit" class="btn btn-dark" style="float : right;" disabled>Book Train</button> 
+			     	<%} else { %>
+			     	<button type="submit" class="btn btn-dark" style="float : right;">Book Train</button>   
+			     	<% } %>
+			     </form>
+			  </div>
+			</div>
+			<br>
+		  <% } %>
+
+            
+</body>
+</html>

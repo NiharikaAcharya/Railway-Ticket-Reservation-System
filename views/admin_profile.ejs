@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Admin Profile</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> <!-- load bootstrap css -->
+
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+ 	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="/css/style.css" />
+
+
+
+	  
+ 	<style>
+		
+        html {
+    height: 100%
+}
+		body 		{ 
+            background-image: url("bg1.jpg");
+            background-repeat: no-repeat;
+    background-size: 100% 100%; }
+
+ 		.borderless td, .borderless th {
+    			border: none;
+		}
+		.navbar{
+			background-color: black;
+		
+		}
+		nav.btn{
+			color: white;
+		}
+		.card-body{
+			opacity: 0.5;
+		}
+ 	</style> 
+ 	 
+ 	
+
+
+</head>
+
+<body" >
+
+ <nav class="navbar navbar-expand-sm  navbar-dark">
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+	<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+	 <li class="nav-item active">
+	 <form action="/adminpage" method="get">
+		<button type="submit" class="btn ">Welcome Admin</button></form>
+	 </li>
+ 	</ul>
+ 	 
+	<a href="/">
+    		<button type="button" class="btn btn-danger">Back</button>
+	</a>
+     
+ </div>
+ </nav>
+
+
+ <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="margin:30px 30px 30px 30px">
+  <div class="card-header">
+    Add Trains
+  </div>
+  <div class="card-body">
+    <p class="card-text">Add new trains and fare to reservation portal by entering the source , destination and date</p>
+   <form action="/addtrain" method="post">
+ <button class="btn btn-dark" type="submit"> Add Train and Ticket Fare</button>
+ </form>
+  </div>
+</div>
+
+ <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="margin:30px 30px 30px 30px">
+  <div class="card-header">
+    Generate Train Chart
+  </div>
+  <div class="card-body">
+    <p class="card-text">Generate Train chart by entering the train number and date</p>
+    <form action="/getchart" method="post">
+	 <button class="btn btn-dark" type="submit"> Generate Chart </button>
+ </form>
+  </div>
+</div>
+
+
+</body>
+
+</html>

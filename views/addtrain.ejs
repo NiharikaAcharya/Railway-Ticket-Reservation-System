@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Add train</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> <!-- load bootstrap css -->
+
+	<!-- Custom stlylesheet -->
+	
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	  <link rel="stylesheet" href="/resources/demos/style.css">
+	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	  
+	 <script>$('#date').datepicker({ dateFormat: 'dd-mm-yyyy' }).val();</script>
+ 	<style>
+		 
+        html {
+    height: 100%
+}
+		body 		{ 
+            background-image: url("bg1.jpg");
+            background-repeat: no-repeat;
+    background-size: 100% 100%; }
+
+ 		.borderless td, .borderless th {
+    			border: none;
+		}
+		.navbar{
+			background-color: black;
+		
+		}
+		nav.btn{
+			color: white;
+		}
+		.card{
+			opacity: 0.85;
+		}
+ 	</style> 
+</head>
+
+<body">
+
+ <nav class="navbar navbar-expand-sm  navbar-dark">
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+	<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+	 <li class="nav-item active">
+	 <form action="/addtrain" method="get">
+		<button type="submit" class="btn ">Welcome Admin</button></form>
+	 </li>
+ 	</ul>
+ 	 
+	<a href="/adminpage">
+    		<button type="button" class="btn btn-danger">Back</button>
+	</a>
+     
+ </div>
+ </nav>
+  
+ <div class="card shadow-lg p-3 mb-5 bg-white rounded"  style="margin:30px 30px 30px 30px">
+  <div class="card-header">
+    Add Trains and Fare
+  </div>
+  <div class="card-body">
+    <form action="/addtrtbl" method="post" >
+    <div class="form-row">
+    	 <div class="form-group col-md-4">
+    	 <label for="inputEmail4">Train Number</label>
+	 <input type="number" class="form-control" id="inputEmail4" placeholder="Train Number" name="tno" required>
+	 </div>
+	 
+	 <div class="form-group col-md-4">
+	<label for="inputPassword4">Train Name</label>
+	<input type="text" class="form-control" id="password" placeholder="Train Name" name="tname" required>
+	</div>
+
+
+		<div class="form-group col-md-4">
+		<label for="inputEmail4">Source Station</label>
+	<input type="text" class="form-control" id="inputEmail4" placeholder="From" name="tfrom" required>
+	</div>
+   </div>
+   </br>
+   <!-- <div class="form-row">
+    	 <div class="form-group col-md-4">
+    	 <label for="inputEmail4">Source Station</label>
+	 <input type="text" class="form-control" id="inputEmail4" placeholder="From" name="tfrom" required>
+	 </div> -->
+	 <!-- <div class="form-row">
+		<div class="form-group col-md-4">
+		<label for="inputpassword4">Source Station</label>
+	<input type="text" class="form-control" id="password" placeholder="From" name="tfrom" required>
+	</div> -->
+	<div class="form-row">
+	 <div class="form-group col-md-4">
+	<label for="inputPassword4">Destination Station</label>
+	<input type="text" class="form-control" id="password" placeholder="To" name="tto" required>
+	</div>
+	
+	<div class="form-group col-md-4">
+	<label for="inputPassword4">Date</label>
+	<input type="date" class="form-control" id="password" placeholder="Date" name="tdate" required>
+	</div>
+	<div class="form-group col-md-4">
+		<label for="inputPassword4">Fare</label>
+		<input type="text" class="form-control" id="inputPassword4" placeholder="Fare" name="tfare" required>
+		</div>
+</div>
+</br>
+<div class="form-row">
+		<div class="form-group col-md-4">
+			<label for="inputPassword4">Convenience Fee</label>
+			<input type="text" class="form-control" id="inputPassword4" placeholder="convenience_fee" name="tcfee" required>
+			</div>
+
+			<div class="form-group col-md-4">
+				<label for="inputPassword4">Travel Insurance Premium</label>
+				<input type="text" class="form-control" id="inputPassword4" placeholder="travel_insurance_premium" name="ttip" required>
+				</div>
+
+				<div class="form-group col-md-4">
+					<label for="inputPassword4">Timings</label>
+					<input type="text" class="form-control" id="inputPassword4" placeholder="timings" name="ttime" required>
+					</div>
+	</div>
+</div>
+</br>
+<button class="btn btn-dark" type="submit">Add Train and Ticket Fare </button>
+   </div>
+	
+
+ <!-- <button class="btn btn-primary" type="submit">Add Train and Ticket Fare </button> -->
+   </form>
+  </div>
+</div> 
+</body>
+
+</html>

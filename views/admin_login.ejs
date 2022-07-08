@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+	<title>Admin Login</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<style>
+       
+        html {
+    height: 100%
+}
+		body 		{ padding-top:80px;
+            background-image: url("bg1.jpg");
+            background-repeat: no-repeat;
+    background-size: 100% 100%; }
+    btn{
+        color: white;
+        background-color: black;
+    }
+	</style>
+	
+	
+</head>
+<body>
+    <div class="container">
+        <div class="col-sm-6 col-sm-offset-3">
+            <h1><span class="fa fa-sign-in"></span> Login</h1>
+
+           
+          
+
+            <!-- LOGIN FORM -->
+            <form action="/adminlogin" method="post">
+
+                <div class="form-group">
+                    <label>UserID</label>
+                    <input type="text" class="form-control" name="userid">
+                </div>
+              
+
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" name="username">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+
+                <div class="form-group">
+                    <label>Secret Code</label>
+                    <input type="password" class="form-control" name="code">
+                </div>
+                <!-- <div class="form-group">
+                    <label>Remember Me</label>
+                    <input type="checkbox" class="form-control" name="remember" value="yes">
+                </div> -->
+            
+                <button type="submit" class="btn btn-lg">Login</button>
+             </form>
+
+            <!-- <hr> -->
+
+             <!-- <p>Need an account? <a href="/signup">Signup</a></p> --> 
+            <!-- <p>go <a href="/">home</a>.</p> -->
+        </div>
+    </div>
+</body>
+</html>

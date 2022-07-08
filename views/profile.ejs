@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Profile</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> <!-- load bootstrap css -->
+
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+ 	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="/css/style.css" />
+<style>
+	        /* html {
+    height: 100%
+} */
+		body 		{ 
+            background-image: url("bg1.jpg");
+            background-repeat: no-repeat;
+    background-size: 100% 100%; }
+	button {
+  background: #070404;
+}
+button:hover{
+	background: #2b2727;
+}
+.navbar{
+	background: #070404;
+}
+.btn{
+	color: white;
+}
+.btn dropdown-item{
+	color: rgb(7, 1, 1);
+	background-color: black;
+}
+
+</style>
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-sm  navbar-dark">
+
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+	 <li class="nav-item active">
+	 <form action="/userdetails" method="post">
+		<button type="submit" class="btn">Welcome <%= user.username %></button></form>
+	 </li>
+	 <li class="nav-item">
+	  <form action="/pnrenquiry" method="post">
+		<button type="submit" class="btn ">PNR Enquiry</button>
+	  </form>
+	 </li>
+	 <li class="nav-item">
+	  <form action="/cancelticket" method="post">
+		 <button type="submit" class="btn ">Cancel Ticket</button>
+	  </form>
+	 </li>
+
+	 <li class="nav-item">
+		<div class="dropdown">
+		    <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown">
+		      My Bookings
+		    </button>
+		    <div class="dropdown-menu">
+
+		     <form action="/pastticket" method="post">
+		    	<button type="submit" class="dropdown-item btn-dark"> Past </button>
+		     </form>
+
+		    <form action="/cancelledticket" method="post">
+		    	<button type="submit" class="dropdown-item btn-dark"> Cancelled </button>
+		    </form>
+		    </div>
+		  </div>
+		</div>
+	 </li>
+ </ul>
+    <form class="form-inline my-2 my-lg-0" action="/logout" method="get">
+			<a href="/logout">
+    		<button type="button" class="btn btn-danger">Log out</button>
+			</a>
+    </form>
+  </div>
+</nav>
+
+	<div id="booking" class="section">
+		<div class="section-center">
+
+
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7 col-md-push-5">
+
+					</div>
+					<div class="col-md-4 col-md-pull-7">
+						<div class="booking-form">
+							<form action="/searchtrain" method="post">
+								<div class="form-group">
+									<span class="form-label">Your Source</span>
+									<input class="form-control" name="source" type="text" placeholder="Enter a source" required>
+								</div>
+
+								<div class="form-group">
+									<span class="form-label">Your Destination</span>
+									<input class="form-control" name="destination" type="text" placeholder="Enter a destination" required>
+								</div>
+
+								<div class="form-group">
+									<span class="form-label">Your date</span>
+									<input class="form-control" name="date" type="date" placeholder="Enter a date" required>
+								</div>
+
+
+								<div class="form-btn">
+									<button type="submit" class="submit-btn dark">Check availability</button>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+		<!-- LOCAL INFORMATION -->
+
+
+
+
+</body>
+
+</html>

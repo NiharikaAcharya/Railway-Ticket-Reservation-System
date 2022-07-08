@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+	<title>Cancel Ticket</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+	<script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<style>
+
+        html {
+    height: 100%
+}
+		body 		{ 
+            background-image: url("bg1.jpg");
+            background-repeat: no-repeat;
+    background-size: 100% 100%; }
+
+		
+		.myDiv{
+			    width:100%;
+			    height:90%;
+			    background:#d9ddd4;
+			    border-radius: 25px;
+			}
+		.borderless td, .borderless th {
+    			border: none;
+		}.navbar{
+			background-color: black;
+		
+		}
+		nav.btn{
+			color: white;
+		}
+		form{
+			opacity: 0.85;
+		}
+  
+	</style>
+</head>
+<body>
+     	
+     	
+   <nav class="navbar navbar-expand-sm  navbar-dark">
+	<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+  		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+	          <li class="nav-item active">
+	  		<button type="submit" class="btn ">Welcome Admin</button>
+	          </li>
+ 		</ul>
+    
+		  
+ 	 </div>
+   </nav>            
+ 
+ <br>
+ <br>
+ 
+ <form action="/chart" method="post" class="form-inline">
+  <div class="form-group mx-sm-3 mb-2">
+    <input type="text" class="form-control" id="inputPassword2" name="trainno" placeholder="Train Number">
+  </div>
+    <div class="form-group mx-sm-3 mb-2">
+    <input type="date" class="form-control" id="inputPassword2" name="date" placeholder="Date">
+  </div>
+  <button type="submit" class="btn btn-dark mb-2">Check Details</button>
+</form>
+   
+   <br>
+   
+   <% if(data.length>0) { %>
+   <div id="tab" style="margin:20px 20px 20px 20px;">
+   <table id="myTable" class="table" >  
+        <thead>  
+          <tr>  
+            <th>Passenger ID</th>  
+            <th>PNR</th>  
+            <th>Seat Number </th>
+            <th>Train Number</th>  
+            <th>Date</th>  
+            <th>Start</th>
+            <th>End</th>
+          </tr>  
+        </thead>  
+        <tbody>  
+        <% for(var i=0; i<data.length;i++){ %>
+            <tr>
+            	<td>  <%=data[i].id  %> </td>
+            	<td> <%= data[i].PNR  %> </td>
+            	<td> <%= data[i].seat_number %> </td>
+            	<td> <%= data[i].train_number  %> </td>
+            	<td> <%= data[i].date_journey.toDateString();  %> </td>
+            	<td> <%= data[i].start  %> </td>
+            	<td> <%= data[i].end %> </td>
+            </tr>
+        <% } %>
+        </tbody>  
+      </table>  
+  </div>
+  
+   <!-- <p>
+        <input type="button" class="btn btn-primary" value="Download PDF" 
+            id="btPrint" onclick="createPDF()" />
+    </p>  -->
+<!-- <script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+
+ function createPDF() {
+        var sTable = document.getElementById('tab').innerHTML;
+
+        var style = "<style>";
+        style = style + "table {width: 100%;font: 17px Calibri;}";
+        style = style + "table, th, td {border: solid 1px #DDD; border-collapse: collapse;";
+        style = style + "padding: 2px 3px;text-align: center;}";
+        style = style + "</style>";
+
+        // CREATE A WINDOW OBJECT.
+        var win = window.open('', '', 'height=700,width=700');
+
+        win.document.write('<html><head>');
+        win.document.write('<title>Profile</title>');   // <title> FOR PDF HEADER.
+        win.document.write(style);          // ADD STYLE INSIDE THE HEAD TAG.
+        win.document.write('</head>');
+        win.document.write('<body>');
+        win.document.write(sTable);         // THE TABLE CONTENTS INSIDE THE BODY TAG.
+        win.document.write('</body></html>');
+
+        win.document.close(); 	// CLOSE THE CURRENT WINDOW.
+
+        win.print();    // PRINT THE CONTENTS.
+    }
+</script> -->
+<!-- </script> -->
+   
+
+   <% } %>   
+   	      
+</body>
+</html>
+
+	      

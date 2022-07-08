@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>USER DETAILS</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> <!-- load bootstrap css -->
+
+	<!-- Custom stlylesheet -->
+
+ 	<style>
+		 		  html {
+    height: 100%
+}
+		body 		{ 
+            background-image: url("bg1.jpg");
+            background-repeat: no-repeat;
+    background-size: 100% 100%; }
+ 		.borderless td, .borderless th {
+    			border: none;
+		}
+		.navbar{
+	background: #070404;
+}
+.btn{
+	color: aliceblue;
+}
+.card{
+	opacity: 0.75;
+}
+.table tr td{
+   color: #0a0101;
+}
+ 	</style>
+
+
+</head>
+
+<body>
+
+ <nav class="navbar navbar-expand-sm  navbar-dark">
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+	<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+	 <li class="nav-item active">
+	 <form action="/userdetails" method="post">
+		<button type="submit" class="btn ">Welcome <%= user.username %></button></form>
+	 </li>
+
+	 <li class="nav-item active">
+	 <form action="/updatedetails" method="post">
+		<button type="submit" class="btn ">Update Details</button></form>
+	 </li>
+ 	</ul>
+
+	<a href="/profile">
+    		<button type="button" class="btn btn-danger">Back</button>
+	</a>
+
+ </div>
+ </nav>
+
+ <br>
+ <div  style="margin:20px 20px 20px 20px">
+   <div class="row">
+   	 <div class="col-sm-6">
+	 <div class="card shadow p-3 mb-5 bg-white rounded" >
+	  <h5 class="card-header">Personal Details</h5>
+	  <div class="card-body">
+	     <table class="table borderless">
+	     	<tr>
+	     		<td>User Name</td>
+	     		<td><%= user.username %>
+	     	</tr>
+	     	
+	     	<tr>
+	     		<td>Gender</td>
+	     		<td><%= data[0].gender%>
+	     	</tr>
+
+	     	<tr>
+	     		<td>Email Id</td>
+	     		<td><%=data[0].email %>
+	     	</tr>
+	     	<tr>
+	     		<td>Phone Number</td>
+	     		<td><%= data[0].phnumber %>
+	     	</tr>
+	     	<tr>
+	     		<td>Occupation</td>
+	     		<td><%=data[0].occupation %>
+	     	</tr>
+
+	     </table>
+	  </div>
+	</div>
+	</div>
+
+	 <div class="col-sm-6">
+	<div class="card card shadow p-3 mb-5 bg-white rounded ">
+	  <h5 class="card-header">Residential Details</h5>
+	  <div class="card-body">
+	     <table class="table borderless">
+
+	     	<tr>
+	     		<td>Address</td>
+	     		<td><%= data[0].address %>
+	     	</tr>
+	     	<tr>
+	     		<td>City</td>
+	     		<td><%= data[0].city%>
+	     	</tr>
+
+	     	<tr>
+	     		<td>District</td>
+	     		<td><%=data[0].district %>
+	     	</tr>
+	     	<tr>
+	     		<td>City</td>
+	     		<td><%= data[0].city %>
+	     	</tr>
+	     	<tr>
+	     		<td>State</td>
+	     		<td><%=data[0].state %>
+	     	</tr>
+	     	<tr>
+	     		<td>Country</td>
+	     		<td><%=data[0].country %>
+	     	</tr>
+	     </table>
+	  </div>
+	</div>
+	</div>
+  </div>
+</div>
+</body>
+
+</html>

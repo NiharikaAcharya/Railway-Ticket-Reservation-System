@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Train Information</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> <!-- load bootstrap css -->
+
+	<!-- Custom stlylesheet -->
+	 
+ 	<style>
+	
+        html {
+    height: 100%
+}
+		body 		{ 
+            background-image: url("bg1.jpg");
+            background-repeat: no-repeat;
+    background-size: 100% 100%; }
+
+ 		.borderless td, .borderless th {
+    			border: none;
+		}
+		.navbar{
+			background-color: black;
+		
+		}
+		nav.btn{
+			color: white;
+		}
+		.card{
+			opacity: 0.85;
+		}
+ 	</style> 
+ 	
+ 	
+
+
+</head>
+
+<body>
+
+ <nav class="navbar navbar-expand-sm  navbar-dark">
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+	<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+	 <li class="nav-item active">
+	 <form action="/adminpage" method="get">
+		<button type="submit" class="btn ">Welcome Admin</button></form>
+	 </li>
+ 	</ul>
+ 	 
+	<a href="/">
+    		<button type="button" class="btn btn-danger">Back</button>
+	</a>
+     
+ </div>
+ </nav>
+ 
+ 
+ <div style="margin:30px 30px 30px 30px">
+ 
+		 <% for (var i=0; i<data.total; i++){%>
+		 
+		 <div class="card shadow-lg p-3 mb-5 bg-white rounded" >
+			  <h5 class="card-header">Train Number : <%=data.trains[i].number%></h5>
+			  <div class="card-body">
+			     <table class="table borderless">
+			     	<tr>
+			     		<td>Train Name</td>
+			     		<td><%= data.trains[i].name %></td>
+			     	</tr>
+			     	<tr>
+			     		<td>From</td>
+			     		<td><%= data.trains[i].from_station.name %></td>
+			     	</tr>
+			     	<tr>
+			     		<td>Departure Time</td>
+			     		<td><%= data.trains[i].src_departure_time %></td>
+			     	</tr>
+			     	
+			     	<tr>
+			     		<td>To</td>
+			     		<td><%=data.trains[i].to_station.name %></td>
+			     	</tr>
+			     	<tr>
+			     		<td>Arrival Time</td>
+			     		<td><%=  data.trains[i].dest_arrival_time %></td>
+			     	</tr>
+			     	 	
+			     </table>
+			     <hr>
+			     <form action="/addtrtbl" method="post">
+			     	<input type="hidden" name="tno" value="<%=data.trains[i].number%>"/>
+			     	<input type="hidden" name="tname" value="<%= data.trains[i].name%>"/>
+			     	<input type="hidden" name="tfrom" value="<%=from%>"/>
+			     	<input type="hidden" name="tto" value="<%=to %>"/>
+			     	<input type="hidden" name="tdate" value="<%=date%>"/>
+			     	<button type="submit"class="btn btn-dark">Add Train</button> 
+			     </form>
+			  </div>
+			</div>
+			<br>
+		  <% } %>
+ 
+</body>
+
+</html>
